@@ -9,7 +9,7 @@ const defaultOptions = {
     diffMask: false         // draw the diff over a transparent background (a mask)
 };
 
-export default function pixelmatch(img1, img2, output, width, height, options) {
+function pixelmatch(img1, img2, output, width, height, options) {
 
     if (!isPixelData(img1) || !isPixelData(img2) || (output && !isPixelData(output)))
         throw new Error('Image data: Uint8Array, Uint8ClampedArray or Buffer expected.');
