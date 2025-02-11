@@ -1,5 +1,6 @@
 
 const defaultOptions = {
+    maxDiff: 0,
     threshold: 0.1,         // matching threshold (0 to 1); smaller is more sensitive
     includeAA: false,       // whether to skip anti-aliasing detection
     alpha: 0.1,             // opacity of original image in diff output
@@ -73,6 +74,9 @@ function pixelmatch(img1, img2, output, width, height, options) {
                         }
                     }
                     diff++;
+                    if ((options.maxDiff) && (diff >= options.maxDiff)) {
+                      return diff;
+                    }
                 }
 
             } else if (output) {
